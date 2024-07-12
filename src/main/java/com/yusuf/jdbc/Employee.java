@@ -1,12 +1,19 @@
 package com.yusuf.jdbc;
 
-import java.io.Reader;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.sql.Date;
 
+@Entity
+@Table(name = "employee")
 public class Employee {
+
     private String fname;
     private String minit;
     private String lname;
+    @Id
     private String ssn;
     private Date bdate;
     private String address;

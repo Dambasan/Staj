@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- For Oracle SQL use oracle.jdbc.driver.OracleDriver as the driver-->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <!-- For Oracle SQL use  org.hibernate.dialect.OracleDialect as the dialect-->
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        <!-- Example url for reference: dbc:mysql://localhost:3306/project_schema_db?useSSL=false -->
+        <property name="connection.url">jdbc:postgresql://localhost:5432/Staj?useSSL=false</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">1234</property>
+
+        <!-- When it's true, every query executed by hibernate will be shown in the console-->
+        <property name="show_sql">true</property>
+
+        <!--Setting session context model -->
+        <property name="current_session_context_class">thread</property>
+        <mapping class="com.yusuf.jdbc.Employee" />
+    </session-factory>
+</hibernate-configuration>
