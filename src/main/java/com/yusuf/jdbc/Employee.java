@@ -1,8 +1,6 @@
 package com.yusuf.jdbc;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.sql.Date;
 
@@ -19,10 +17,17 @@ public class Employee {
     private String address;
     private String sex;
     private int salary;
-    private String superssn;
-    private int dno;
+
+    @ManyToOne
+    @JoinColumn(name = "dno", referencedColumnName = "dnumber")
+    private Department department;
+
+    @ManyToOne
+    @JoinColumn(name = "superssn", referencedColumnName = "ssn")
+    private Employee employeeManager;
 
     public Employee() {
+
     }
 
     @Override
@@ -36,8 +41,6 @@ public class Employee {
                 ", address='" + address + '\'' +
                 ", sex='" + sex + '\'' +
                 ", salary=" + salary +
-                ", superssn='" + superssn + '\'' +
-                ", dno=" + dno +
                 '}';
     }
 
@@ -105,23 +108,15 @@ public class Employee {
         this.salary = salary;
     }
 
-    public String getSuperssn() {
-        return superssn;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    public void setSuperssn(String superssn) {
-        this.superssn = superssn;
+    public void setEmployeeManager(Employee employeeManager) {
+        this.employeeManager = employeeManager;
     }
 
-    public int getDno() {
-        return dno;
-    }
-
-    public void setDno(int dno) {
-        this.dno = dno;
-    }
-
-    public Employee(String fname, String minit, String lname, String ssn, Date bdate, String address, String sex, int salary, String superssn, int dno) {
+    public Employee(String fname, String minit, String lname, String ssn, Date bdate, String address, String sex, int salary) {
         this.fname = fname;
         this.minit = minit;
         this.lname = lname;
@@ -130,7 +125,5 @@ public class Employee {
         this.address = address;
         this.sex = sex;
         this.salary = salary;
-        this.superssn = superssn;
-        this.dno = dno;
     }
 }

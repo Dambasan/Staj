@@ -20,5 +20,6 @@
         <!--Setting session context model -->
         <property name="current_session_context_class">thread</property>
         <mapping class="com.yusuf.jdbc.Employee" />
+        <mapping class="com.yusuf.jdbc.Department" />
     </session-factory>
 </hibernate-configuration>

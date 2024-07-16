@@ -13,13 +13,14 @@ public class MainDriver {
         SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         Transaction transaction = session.beginTransaction();
-        Employee employee = session.find(Employee.class, "38383838");
-        System.out.println(employee);
-        employee.setFname("Yusuf");
+        Employee employee = new Employee("Yusuf2","x", "Dambasan2","343434354", null, "İst", "M", 156234);
+        employee.setDepartment(session.get(Department.class, 1));
+        employee.setEmployeeManager(session.find(Employee.class, "38383838"));
         session.persist(employee);
-        session.find(Employee.class, "38383838");
         System.out.println(employee);
+//        session.delete(session.find(Department.class, 5));
         transaction.commit();
+
         try{
             //add your hibernate code to manipulate data
         }finally {
