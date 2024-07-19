@@ -17,14 +17,14 @@ public class MainDriver {
 //        employee.setDepartment(session.get(Department.class, 1));
 //        employee.setEmployeeManager(session.find(Employee.class, "38383838"));
 //        session.persist(employee);
-        Employee employee = session.find(Employee.class, "34334354");
+//        Employee employee = session.find(Employee.class, "34334354");
 //        employee.setFname("Yusuf3");
 //        session.update(employee);
 //        System.out.println(employee);
 //        session.delete(session.find(Department.class, 5));
         transaction.commit();
 
-        System.out.println(employee.getDepartment());
+//        System.out.println(employee.getDepartment());
 
         try {
 

@@ -21,7 +21,7 @@ public class Employee {
     private String sex;
     private int salary;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dno", referencedColumnName = "dnumber")
     private Department department;
 
