@@ -1,9 +1,12 @@
 package com.yusuf.jdbc;
 
 import jakarta.persistence.*;
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.Fetch;
 
 import java.sql.Date;
-
+@DynamicUpdate
 @Entity
 @Table(name = "employee")
 public class Employee {
@@ -18,7 +21,7 @@ public class Employee {
     private String sex;
     private int salary;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dno", referencedColumnName = "dnumber")
     private Department department;
 
@@ -106,6 +109,14 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Employee getEmployeeManager() {
+        return employeeManager;
+    }
+
+    public Department getDepartment() {
+        return department;
     }
 
     public void setDepartment(Department department) {

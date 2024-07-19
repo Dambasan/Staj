@@ -1,6 +1,8 @@
 package com.yusuf.jdbc;
 
 import jakarta.persistence.*;
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.Fetch;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -57,7 +59,8 @@ public class Department {
         this.mgrstartdate = mgrstartdate;
     }
 
-    public Department() {}
+    public Department() {
+    }
 
     @Override
     public String toString() {
